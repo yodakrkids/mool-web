@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<meta name="theme-color" content="#a6d8e8" />
+<title>mool — a vacation for one</title>
+<meta name="description" content="mool — a vacation for one. 작은 섬에서 파도 소리 들으며 혼자 쉬어 가는 웹 힐링 게임." />
+<!-- 공유 미리보기 (카카오톡·메신저·X 등). 이미지·주소는 GitHub Pages 기준 절대 경로 -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="mool" />
+<meta property="og:title" content="mool — a vacation for one" />
+<meta property="og:description" content="작은 섬에서 파도 소리 들으며 혼자 쉬어 가는 웹 힐링 게임. A tiny island, the sound of waves, a vacation for one." />
+<meta property="og:url" content="https://yodakrkids.github.io/mool-web/" />
+<meta property="og:image" content="https://yodakrkids.github.io/mool-web/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="노을 진 섬, 모닥불 앞에 앉은 캐릭터와 헬기" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="mool — a vacation for one" />
+<meta name="twitter:description" content="작은 섬에서 파도 소리 들으며 혼자 쉬어 가는 웹 힐링 게임." />
+<meta name="twitter:image" content="https://yodakrkids.github.io/mool-web/og.jpg" />
+<style>html,body{overscroll-behavior:none;touch-action:none;background:#cfe6ee;height:100%;margin:0;overflow:hidden}canvas{width:100%;height:100%;display:block}#loader{z-index:50;color:#24505c;background:linear-gradient(#d9eef3 0%,#bfe3ea 55%,#a6d8e8 100%);place-items:center;font-family:ui-rounded,SF Pro Rounded,system-ui,-apple-system,Apple SD Gothic Neo,sans-serif;transition:opacity .8s,visibility .8s;display:grid;position:fixed;inset:0}#loader.ld-out{opacity:0;visibility:hidden}#loader .ld-box{text-align:center;padding:0 24px}#loader .ld-title{letter-spacing:.02em;font-size:clamp(56px,14vw,104px);font-weight:700;line-height:1}#loader .ld-sub{letter-spacing:.18em;text-transform:lowercase;opacity:.75;margin-top:10px;font-size:clamp(14px,3.6vw,18px)}#loader .ld-bar{background:#24505c26;border-radius:3px;width:min(220px,56vw);height:3px;margin:34px auto 12px;overflow:hidden}#loader .ld-bar i{transform-origin:0;background:#24505c;height:100%;display:block;transform:scaleX(0)}#loader .ld-pct{font-variant-numeric:tabular-nums;letter-spacing:.08em;opacity:.8;font-size:15px}@media (prefers-reduced-motion:reduce){#loader{transition:none}}#err{text-align:center;color:#234;place-items:center;padding:24px;font:15px/1.6 system-ui,sans-serif;display:none;position:fixed;inset:0}</style>
+<script>
+/* 업데이트 확인: 배포마다 빌드 커밋(VITE_BUILD)을 넣고 version.json 과 비교 → 새 빌드가 있으면 ?v=새커밋 으로 바로 새로 불러옴
+   (실행할 때만 — 플레이 중 돌아왔을 땐 새로고침 안 함). 같은 커밋으로는 한 번만 시도(무한 리로드 방지). 개발 서버에선 꺼짐 */
+( function () {
+  var CUR = '68c08e7';
+  if ( ! CUR || CUR.charAt( 0 ) === '%' ) return;
+  function check() {
+    fetch( 'version.json?t=' + Date.now(), { cache: 'no-store' } ).then( function ( r ) { return r.ok ? r.json() : null; } ).then( function ( d ) {
+      var rev = d && d.rev;
+      if ( ! rev || rev === CUR ) return;
+      try { if ( sessionStorage.getItem( 'mool:upd' ) === rev ) return; sessionStorage.setItem( 'mool:upd', rev ); } catch ( e ) {}
+      var u = new URL( location.href ); u.searchParams.set( 'v', rev ); location.replace( u.toString() );
+    } ).catch( function () {} );
+  }
+  check(); // 시작할 때만. 숨겼다 돌아왔을 땐 새로고침하지 않음(사용자: "포커스 잃으면 완전 리로드") — src/core/background.js watchUpdates 가 토스트로만 알림
+} )();
+</script>
+  <script type="module" crossorigin src="/mool-web/assets/index-ZnM0e2a-.js"></script>
+  <link rel="modulepreload" crossorigin href="/mool-web/assets/wetmap-YDzuUoqT.js">
+  <link rel="stylesheet" crossorigin href="/mool-web/assets/index-C5muMJAE.css">
+</head>
+<body>
+<div id="loader" role="progressbar" aria-label="불러오는 중"><div class="ld-box"><div class="ld-title">mool</div><div class="ld-sub">a vacation for one</div><div class="ld-bar"><i></i></div><div class="ld-pct">0%</div></div></div>
+<div id="hud"></div>
+<div id="err"></div>
+</body>
+</html>
